@@ -31,11 +31,12 @@ sections.forEach((section) => {
 	li.innerText = section.getAttribute("data-nav");
 	nav.appendChild(li);
 
-    console.log(nav.offsetHeight)
-
     // add listener to scroll in click to the connected section
     li.addEventListener("click", () => {
-        window.scrollTo(0, section.offsetTop - nav.offsetHeight);
+        window.scrollTo({
+            left: 0,
+            top: section.offsetTop - nav.offsetHeight, 
+            behavior: "smooth"});
     })
 });
 
